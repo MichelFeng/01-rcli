@@ -16,3 +16,4 @@ serde = { version = "1.0.218", features = ["derive"] } # serialization/deseriali
 serde_json = "1.0.140" # JSON serialization/deserialization library
 serde_yaml = "0.9.34" # YAML serialization/deserialization library
 toml = "0.8.20" # TOML serialization/deserialization library
+zxcvbn = "3.1.0"

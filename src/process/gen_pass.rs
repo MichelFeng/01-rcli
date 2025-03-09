@@ -1,4 +1,5 @@
 use rand::seq::IndexedRandom;
+use zxcvbn::zxcvbn;
 
 const UPPER: &[u8] = b"ABCDEFGHJKLMNPQRSTUVWXYZ";
 const LOWER: &[u8] = b"abcdefghijkmnopqrstuvwxyz";
@@ -34,6 +35,11 @@ pub fn process_genpass(
         // let idx = rng.random_range(0..chars.len());
         // password.push(chars[idx] as char);
     }
+
     println!("Generated password: {}", password);
+
+    // output the password strength
+    let result = zxcvbn(&password, &[]);
+    eprintln!("Password strength: {}", result.score());
     Ok(())
 }
