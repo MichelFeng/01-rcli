@@ -8,24 +8,24 @@ const SYMBOL: &[u8] = b"!@#$%^&*_";
 
 pub fn process_genpass(
     length: u8,
-    uppercase: bool,
-    lowercase: bool,
-    number: bool,
-    symbol: bool,
+    no_uppercase: bool,
+    no_lowercase: bool,
+    no_number: bool,
+    no_symbol: bool,
 ) -> anyhow::Result<()> {
     let mut rng = rand::rng();
     let mut password = String::with_capacity(length as usize);
     let mut chars = Vec::new();
-    if uppercase {
+    if !no_uppercase {
         chars.extend_from_slice(UPPER);
     }
-    if lowercase {
+    if !no_lowercase {
         chars.extend_from_slice(LOWER);
     }
-    if number {
+    if !no_number {
         chars.extend_from_slice(NUMBER);
     }
-    if symbol {
+    if !no_symbol {
         chars.extend_from_slice(SYMBOL);
     }
     for _ in 0..length {

@@ -49,17 +49,17 @@ pub struct GenPassOpts {
     #[arg(short, long, default_value_t = 16)]
     pub length: u8,
 
-    #[arg(long, default_value_t = true)]
-    pub uppercase: bool,
+    #[arg(long = "no-uppercase", default_value_t = false)]
+    pub no_uppercase: bool,
 
-    #[arg(long, default_value_t = true)]
-    pub lowercase: bool,
+    #[arg(long = "no-lowercase", default_value_t = false)]
+    pub no_lowercase: bool,
 
-    #[arg(long, default_value_t = true)]
-    pub number: bool,
+    #[arg(long = "no-number", default_value_t = false)]
+    pub no_number: bool,
 
-    #[arg(long, default_value_t = true)]
-    pub symbol: bool,
+    #[arg(long = "no-symbol", default_value_t = false)]
+    pub no_symbol: bool,
 }
 
 fn verify_input_file(filename: &str) -> Result<String, String> {
